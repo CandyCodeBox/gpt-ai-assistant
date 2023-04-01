@@ -28,6 +28,9 @@ app.get('/info', async (req, res) => {
 });
 
 app.post(config.APP_WEBHOOK_PATH, validateLineSignature, async (req, res) => {
+  console.log(req.headers);
+  console.log(req.body)
+  console.log(typeof req.body)
   try {
     await storage.initialize();
     await handleEvents(req.body.events);
